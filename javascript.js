@@ -14,11 +14,19 @@ function computerPlay () {
 
 //this takes user's choice and assigns it to variable playerSelection
 let playerSelection = prompt("Please choose rock, paper, or scissor.");
+let flag = true;
 
-if(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+while (flag) {
     
+    if(playerSelection === "rock" || playerSelection === "paper" ||
+    playerSelection === "scissors") {
+        flag = false;
+    } else {
+        playerSelection = prompt("Invalid answer! Choose rock, paper, or scissor.");
+    };
 }
 
+console.log(Boolean(flag));
 
 
 //console.log(computerPlay());
