@@ -24,14 +24,48 @@ while (flag) {
         } else {
             playerSelection = prompt("Invalid answer! Choose rock, paper, or scissor.").toLowerCase();
         };
-    console.log(Boolean(flag));
     };
     return playerSelection;
 };
 
-console.log(userPlay());
+//console.log(userPlay());
 
+function playRound (playerSelection, computerSelection) {
+    console.log("The computer picked " + computerSelection + "!");
+    if (playerSelection === "rock") {
+        if (computerSelection === "paper") {
+            return "You lose! Paper beats rock!"
+        } else if (computerSelection === "scissors") {
+            return "You win! Rock beats scissors!"
+        } else if (computerSelection === "rock") {
+            return "Rock v Rock is a tie."
+        }
+    } else if (playerSelection === "paper") {
+        if (computerSelection === "paper") {
+            return "Paper v paper is a tie!"
+        } else if (computerSelection === "scissors") {
+            return "You lose! Scissors beats paper!"
+        } else if (computerSelection === "rock") {
+            return "You win! Paper beats rock!"
+        }
+    } else if (playerSelection === "scissors") {
+        if (computerSelection === "paper") {
+            return "You win! Scissors beats paper!"
+        } else if (computerSelection === "scissors") {
+            return "Scissors v scissors is a tie."
+        } else if (computerSelection === "rock") {
+            return "You lose! Rock beats scissors!"
+        }
+    }
+}
 
+//console.log(playRound (userPlay(), computerPlay()));
 
-//console.log(computerPlay());
-//console.log(playerSelection);
+function game () {
+    for (let i = 0; i < 5; i++) {
+        playRound (userPlay(), computerPlay());
+        console.log(`Round ${i + 1} complete!`)
+    }
+}
+
+console.log(game());
