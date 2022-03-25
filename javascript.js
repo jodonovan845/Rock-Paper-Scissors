@@ -1,5 +1,3 @@
-console.log("test of javascript file");
-
 function computerPlay () {
     //this function randomly picks RPS for computer
     let random = Math.floor(Math.random() * 3) + 1;
@@ -12,21 +10,27 @@ function computerPlay () {
     }
 }
 
-//this takes user's choice and assigns it to variable playerSelection
-let playerSelection = prompt("Please choose rock, paper, or scissor.");
+//this takes user's choice and confirms it is valid. if invalid, it asks again.
+function userPlay () {
+
+let playerSelection = prompt("Please choose rock, paper, or scissor.").toLowerCase();
 let flag = true;
 
 while (flag) {
     
     if(playerSelection === "rock" || playerSelection === "paper" ||
-    playerSelection === "scissors") {
+            playerSelection === "scissors") {
         flag = false;
-    } else {
-        playerSelection = prompt("Invalid answer! Choose rock, paper, or scissor.");
+        } else {
+            playerSelection = prompt("Invalid answer! Choose rock, paper, or scissor.").toLowerCase();
+        };
+    console.log(Boolean(flag));
     };
-}
+    return playerSelection;
+};
 
-console.log(Boolean(flag));
+console.log(userPlay());
+
 
 
 //console.log(computerPlay());
