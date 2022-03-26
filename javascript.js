@@ -30,7 +30,42 @@ while (flag) {
 
 function playRound (playerSelection, computerSelection) {
     //this function plays one round of RPS and logs result to console - testing complete
-    console.log("The computer picked " + computerSelection + "!");
+    
+    if (playerSelection === "rock") {
+        console.log("You picked rock!");
+        console.log("The computer picked " + computerSelection + "!");
+        if (computerSelection === "paper") {
+            return "L"
+        } else if (computerSelection === "scissors") {
+            return "W"
+        } else if (computerSelection === "rock") {
+            return "tie"
+        }
+    } else if (playerSelection === "paper") {
+        console.log("You picked paper!");
+        console.log("The computer picked " + computerSelection + "!");
+        if (computerSelection === "paper") {
+            return "tie"
+        } else if (computerSelection === "scissors") {
+            return "L"
+        } else if (computerSelection === "rock") {
+            return "W"
+        }
+    } else if (playerSelection === "scissors") {
+        console.log("You picked scissors!");
+        console.log("The computer picked " + computerSelection + "!");
+        if (computerSelection === "paper") {
+            return "W"
+        } else if (computerSelection === "scissors") {
+            return "tie"
+        } else if (computerSelection === "rock") {
+            return "L"
+        }
+    }
+
+    
+
+    /*
     if (playerSelection === "rock") {
         console.log("You picked rock!");
         if (computerSelection === "paper") {
@@ -59,15 +94,36 @@ function playRound (playerSelection, computerSelection) {
             return "You lose! Rock beats scissors!"
         }
     }
+    */
 }
 
 //console.log(playRound (userPlay(), computerPlay()));
 
 function game () {
+    let result;
+    let userScore = 0;
+    let compScore = 0;
+    let tie = 0;
+
     for (let i = 0; i < 5; i++) {
-        console.log(playRound(userPlay(), computerPlay()));
-        console.log(`Round ${i + 1} complete!`)
+        result = playRound(userPlay(), computerPlay());
+        
+        if (result === "W") {
+            userScore++;
+        } else if (result === "L") {
+            compScore++;
+        } else {
+            tie++;
+        }
+        
+        //console.log("The computer picked " + computerPlay() + "!");
+        //console.log("You picked + " + userPlay() + "!");
+        console.log(result);
+        console.log(`Round ${i + 1} complete! The score is now: You: ${userScore} Computer: ${compScore} Ties: ${tie}.`)
+        console.log("*********************************")
     }
+
+    console.log("~GAME_OVER~")
 }
 
 //console.log(playRound(userPlay(), computerPlay()));
