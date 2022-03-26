@@ -1,5 +1,5 @@
 function computerPlay () {
-    //this function randomly picks RPS for computer
+    //this function randomly picks RPS for computer - testing complete
     let random = Math.floor(Math.random() * 3) + 1;
     if (random === 1) {
         return "rock";
@@ -10,7 +10,7 @@ function computerPlay () {
     }
 }
 
-//this takes user's choice and confirms it is valid. if invalid, it asks again.
+//this takes user's choice and confirms it is valid. if invalid, it asks again - testing complete
 function userPlay () {
 
 let playerSelection = prompt("Please choose rock, paper, or scissor.").toLowerCase();
@@ -28,11 +28,11 @@ while (flag) {
     return playerSelection;
 };
 
-//console.log(userPlay());
-
 function playRound (playerSelection, computerSelection) {
+    //this function plays one round of RPS and logs result to console - testing complete
     console.log("The computer picked " + computerSelection + "!");
     if (playerSelection === "rock") {
+        console.log("You picked rock!");
         if (computerSelection === "paper") {
             return "You lose! Paper beats rock!"
         } else if (computerSelection === "scissors") {
@@ -41,6 +41,7 @@ function playRound (playerSelection, computerSelection) {
             return "Rock v Rock is a tie."
         }
     } else if (playerSelection === "paper") {
+        console.log("You picked paper!");
         if (computerSelection === "paper") {
             return "Paper v paper is a tie!"
         } else if (computerSelection === "scissors") {
@@ -49,6 +50,7 @@ function playRound (playerSelection, computerSelection) {
             return "You win! Paper beats rock!"
         }
     } else if (playerSelection === "scissors") {
+        console.log("You picked scissors!");
         if (computerSelection === "paper") {
             return "You win! Scissors beats paper!"
         } else if (computerSelection === "scissors") {
@@ -63,9 +65,11 @@ function playRound (playerSelection, computerSelection) {
 
 function game () {
     for (let i = 0; i < 5; i++) {
-        playRound (userPlay(), computerPlay());
+        console.log(playRound(userPlay(), computerPlay()));
         console.log(`Round ${i + 1} complete!`)
     }
 }
 
-console.log(game());
+//console.log(playRound(userPlay(), computerPlay()));
+//console.log(game());
+game();
